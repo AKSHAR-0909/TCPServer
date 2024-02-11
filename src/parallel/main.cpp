@@ -22,10 +22,10 @@ const int threadCount = 10;
 queue<int> clients;
 
 class Database {
-private:
+    private:
     unordered_map<string, string> db;
 
-public:
+    public:
     string write(string key, string value) {
         pthread_mutex_lock(&dbMutex);
         db[key] = value.substr(1);
@@ -172,7 +172,7 @@ void* AcceptConnections(void* arg) {
         clients.push(clientSocket);
         pthread_cond_signal(&cv);
         pthread_mutex_unlock(&qMutex);
-    }
+    }   
 }
 
 int main(int argc, char** argv) {
