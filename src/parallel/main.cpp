@@ -56,6 +56,9 @@ Database db;
 
 int CreateSocket(int portno) {
     int sfd = socket(AF_INET, SOCK_STREAM, 0);
+    int iSetOption = 1;
+    setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, (char*)&iSetOption,sizeof(iSetOption));
+
     if (sfd == -1) {
         // perror("socket");
         return -1;
@@ -196,9 +199,9 @@ int main(int argc, char** argv) {
     pthread_t acceptThread;
     pthread_create(&acceptThread, NULL, AcceptConnections, (void*)&serverSocket);
 
-    // for (int i = 0; i < threadCount; i++) {
-    //     pthread_join(threadPool[i], NULL);
-    // }
+    for (int i = 0; i < threadCount; i++) {
+        pthread_join(threadPool[i], NULL);
+    }
 
     pthread_join(acceptThread, NULL);
 
