@@ -26,4 +26,4 @@ jobs:
       run: NUM_CLIENTS=5 make test_parallel
     
     - name: Run Parallel tests with 100 threads
-      run: NUM_CLIENTS=100 make test_parallel
+      run: ENABLE_LOGGING=1 NUM_CLIENTS=100 make test_parallel
