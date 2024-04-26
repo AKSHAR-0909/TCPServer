@@ -9,4 +9,11 @@ Hello
 READ
 Hello
 COUNT
+WRITEF
+first.txt
+2
+hello world
+welcome 
+READF
+first.txt
 END

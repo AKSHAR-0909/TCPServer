@@ -37,7 +37,7 @@ mkdir -p tests/outputs
 # Generate 100 input files at tests/inputs_generated/$i.txt
 for ((i=1;i<=NUM_CLIENTS;i++))
 do
-    sed "s/key/$i/g" tests/inputs/ALL_SUB.txt > tests/inputs_generated/$i.txt
+    sed "s/key/$i/g" tests/inputs/ALL.txt > tests/inputs_generated/$i.txt
 done
 
 # Run 100 clients
